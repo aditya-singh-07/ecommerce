@@ -9,7 +9,7 @@ from ecommerce.model_admin import Apparels
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = './ecommerce/uploads'
+UPLOAD_FOLDER = './ecommerce/static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 admin = Blueprint('admin', __name__)
