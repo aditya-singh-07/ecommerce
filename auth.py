@@ -20,10 +20,10 @@ def login_post():
     password = request.form.get('password')
     remember=True if request.form.get('remember') else False
     user= User.query.filter_by(email=email).first()
-    print(email,check_password_hash(user.password,password))
+    #print(email,check_password_hash(user.password,password))
     if not user or not check_password_hash(user.password,password):
         flash("Login failed try again")
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('main.home'))
     login_user(user, remember=remember)
     flash("Welcome "+ current_user.username)
     return redirect(url_for('main.shopping'))

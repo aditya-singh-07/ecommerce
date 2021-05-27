@@ -3,6 +3,10 @@ from flask import Flask, Blueprint, render_template
 app = Flask(__name__)
 
 main = Blueprint('main', __name__)
+@main.route('/home')
+def home():
+    return render_template('home.html')
+
 @main.route('/shopping')
 def shopping():
     return render_template('index.html')
