@@ -1,0 +1,93 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+      <!-- partial -->
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="d-xl-flex justify-content-between align-items-start">
+              <h2 class="text-dark font-weight-bold mb-2"> Dashboard </h2>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="tab-content tab-transparent-content">
+                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
+                    <div class="row">
+                      <div class="col-12 grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="col-12 grid-margin stretch-card">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h4 class="card-title">Add product</h4>
+                                      <form class="forms-sample" action = "{{ url_for('admin.upload_file') }}" method = "POST"
+                         enctype = "multipart/form-data">
+                                        <div class="form-group">
+                                          <label for="apparelname">Apparel Name</label>
+                                          <input type="text" name="apparel_name" class="form-control" id="apparelname" placeholder="Apparel Name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="brandname">Brand Name</label>
+                                          <input type="text" name="brand_name" class="form-control" id="brandname" placeholder="Brand Name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="shopname">Shop Name</label>
+                                          <input type="text" name="shop_name" class="form-control" id="shopname" placeholder="Shop Name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="materialtype">Material type</label>
+                                          <input type="text" name="material_type" class="form-control" id="materialtype" placeholder="Material type">
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="color">Color</label>
+                                          <input type="text" name="color" class="form-control" id="color" placeholder="Color">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="exampleInputPassword4">Occasion type</label>
+                                          <input type="text" name="occasion_type" class="form-control" id="exampleInputPassword4" placeholder="Occasion type">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="gender">Gender</label>
+                                          <select class="form-control" name="gender" id="gender">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                          </select>
+                                        </div>
+                                        <div class="form-group">
+                                          <label>File upload</label>
+                                          <div class="input-group col-lg-6">
+                                             <input type="file" name="file" class="btn btn-primary btn-lg btn-rounded btn-md pb-2 pt-3 pb-3 mb-2 mr-5 form-control-file"  style="background-color:#b66dff;border: 0px;" > </input>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="Price">Price</label>
+                                          <input type="text" name="Price" class="form-control" id="Price" placeholder="Price">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-fw">Primary</button>
+                                    
+
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+{% endblock %}
