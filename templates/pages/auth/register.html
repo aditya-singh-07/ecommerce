@@ -1,0 +1,79 @@
+{% extends "pages/footer.html" %} {% block header  %} {{ super() }} {% endblock %}
+  {% block body %}
+    <!-- wpf loader Two -->
+    <div id="wpf-loader-two">          
+      <div class="wpf-loader-two-inner">
+        <span>Loading</span>
+      </div>
+    </div> 
+    <!-- / wpf loader Two -->       
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!-- Start header section -->
+    <header id="aa-header">
+        <div class="aa-header-top">
+            <div class="aa-header-top-right">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="aa-header-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="aa-header-bottom-area">
+                  <!-- logo  -->
+                  <div class="aa-logo">
+                    <!-- Text based logo -->
+                    <a href="index.html">
+                      <span class="fa fa-shopping-cart"></span>
+                      <p>Infi<strong>niti</strong> <span>Your Shopping Partner</span></p>
+                    </a>
+                    <!-- img based logo -->
+                    <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
+                  </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </header>
+    <!-- End header section -->
+               
+
+    <!-- Cart view section -->
+ <section id="aa-myaccount">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+        <div class="aa-myaccount-area">         
+            <div class="row">
+              <div class="col-md-6">
+                <div class="aa-myaccount-register">                 
+                 <h4>Register</h4>
+                 <form role="form" action="/signup" method="post" class="aa-login-form">
+                    <label for="">First name<span>*</span></label>
+                    <input type="text" placeholder="First name" name="fname" required>
+                    <label for="">Last name<span>*</span></label>
+                    <input type="text" placeholder="Last name" name="lname" required>
+                    <label for="">Username<span>*</span></label>
+                    <input type="text" placeholder="Username" name="username" required>
+                    <label for="">Password<span>*</span></label>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <label for="">Confirm Password<span>*</span></label>
+                    <input type="password" placeholder="Confirm Password" name="cpassword" required>
+                    <button type="submit" class="aa-browse-btn">Register</button>                    
+                  </form>
+                </div>
+              </div>
+            </div>          
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- / Cart view section -->
+<!-- footer -->  
+ {% endblock %}
