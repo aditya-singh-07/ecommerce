@@ -35,6 +35,8 @@ def signup():
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
     username = request.form.get('username')
     email = request.form.get('email')
     password = request.form.get('password')
@@ -44,11 +46,11 @@ def signup_post():
     if user:
         flash("User Already exist try different email")
         return redirect(url_for('auth.signup'))
-    New_user=User(username,email,hash_password)
+    New_user=User(fname,lname,username,email,hash_password)
     db.session.add(New_user)
     db.session.commit()
     flash("Successfully created!!")
-    return redirect(url_for('auth.login'))
+    return render_template('home.html')
 
 @auth.route('/logout')
 @login_required
