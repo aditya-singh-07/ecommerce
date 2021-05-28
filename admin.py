@@ -18,6 +18,12 @@ admin = Blueprint('admin', __name__)
 def dashboard():
     return render_template('admin/index.html')
 
+@admin.route('/admin/products')
+def view_products():
+    page_global = request.args.get('page', 1, type=int)
+    apparel_data = Apparels.query.paginate(page=page_global, per_page=3)
+    return render_template('admin/products.html',apparel=apparel_data)
+
 @admin.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':

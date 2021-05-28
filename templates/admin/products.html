@@ -1,0 +1,87 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+      <!-- partial -->
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="d-xl-flex justify-content-between align-items-start">
+              <h2 class="text-dark font-weight-bold mb-2"> Products </h2>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="tab-content tab-transparent-content">
+                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
+                    <div class="row">
+                      <div class="col-12 grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                             <h4 class="card-title">View  product</h4>
+                                     <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th> id </th>
+                          <th> Apparel Brand </th>
+                          <th> Apparel Name </th>
+                          <th> Shop Name </th>
+                          <th> Images </th>
+                            <th> material Type </th>
+                            <th> color </th>
+                            <th> occasion </th>
+                            <th> Gender </th>
+                            <th> Price </th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for apparel in apparel.items %}
+                        <tr>
+                               <td>{{ apparel.apparel_id }}</td>
+                               <td>{{ apparel.brand_name }}</td>
+                               <td>{{ apparel.apparel_name }}</td>
+                               <td>{{ apparel.shop_name }}</td>
+                               <td>{{ apparel.image }}</td>
+                               <td>{{ apparel.material_type }}</td>
+                               <td>{{ apparel.color }}</td>
+                               <td>{{ apparel.occasion_type }}</td>
+                               <td>{{ apparel.gender }}</td>
+                               <td>{{ apparel.Price }}</td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>{% for page_num in apparel.iter_pages(left_edge=1, right_edge=1,
+                          left_current=1, right_current=2) %} {% if page_num %} {% if apparel.page ==
+                          page_num %}
+                          <a
+                            class="btn btn-primary btn-sm btn-rounded p-6 mt-2 " style="border: 0px; background-color:#b66dff"
+                            href="{{ url_for('admin.view_products', page=page_num) }}"
+                            >{{ page_num }}</a
+                          >
+                          {% else %}
+                          <a
+                            class="btn btn-outline btn-sm btn-rounded p-6 mt-2" style="border: 0px;"
+                            href="{{ url_for('admin.view_products', page=page_num) }}"
+                            >{{ page_num }}</a
+                          >
+                          {% endif %} {% else %} ... {% endif %} {% endfor %}
+
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+{% endblock %}
