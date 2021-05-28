@@ -1,6 +1,5 @@
 from flask import Flask, Blueprint, render_template
 from flask_login import login_required, current_user
-
 from ecommerce.model_admin import Apparels, Movies
 
 app = Flask(__name__)
@@ -55,3 +54,4 @@ def movie():
 def movie_details(movie_id):
     movie_by_id = Movies.query.get_or_404(movie_id)
     return render_template('admin/movie_detail.html',movie_data=movie_by_id)
+

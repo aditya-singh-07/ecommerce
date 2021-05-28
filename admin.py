@@ -42,13 +42,14 @@ def movies_post():
     if current_user.is_authenticated:
         if request.method == 'POST':
             movie_name = request.form.get('movie_name')
+            movie_description=request.form.get('movie_description')
             genre = request.form.get('genre')
             f = request.files['file']
             director_name = request.form.get('director_name')
             actors = request.form.get('actors')
             review = request.form.get('review')
             files=f.filename
-            movie = Movies(movie_name, genre, files, director_name,actors,review)
+            movie = Movies(movie_name,movie_description, genre, files, director_name,actors,review)
             db.session.add(movie)
             db.session.commit()
             flash("Successfully created!!")

@@ -54,19 +54,31 @@ class Apparels(db.Model):
 class Movies(db.Model):
     movie_id = db.Column(db.Integer, primary_key=True, nullable=False)
     movie_name = db.Column(db.String(100), nullable=False)
+    movie_description=db.Column(db.String(100), nullable=False)
     genre = db.Column(db.String(100), nullable=False)
     movie_poster = db.Column(db.String(100), nullable=False)
     director_name = db.Column(db.String(100), nullable=True)
     actors = db.Column(db.String(100), nullable=False)
     review = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, movie_name, genre, movie_poster, director_name, actors, review):
+    def __init__(self, movie_name,movie_description, genre, movie_poster, director_name, actors, review):
         self.movie_name = movie_name
+        self.movie_description=movie_description
         self.genre = genre
         self.movie_poster = movie_poster
         self.director_name = director_name
         self.actors = actors
         self.review = review
+
+class Order(db.Model, UserMixin):
+    order_id = db.Column(db.Integer, primary_key=True)
+    apparel_id=db.Column(db.Integer, db.ForeignKey('apparels.apparel_id'),
+              nullable=False)
+    apparels = db.relationship('Apparels', backref='author', lazy=True)
+
+    def __init__(self, apparels_id, apparels):
+        self.apparels_id = apparels_id
+        self.apparels = apparels
 
 # class VehicleData(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)

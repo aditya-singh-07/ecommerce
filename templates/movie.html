@@ -60,7 +60,7 @@
         <div class="movie last" style="margin-right: 10px;">
           <div class="movie-image">
            <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
-            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies/' + movies.movie_poster )}}" alt="" /></a>
           </div>
           <div class="rating">
             <p>Review</p>
@@ -79,7 +79,7 @@
         <div class="movie last" style="margin-right: 10px;">
           <div class="movie-image">
          <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
-            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies/' + movies.movie_poster )}}" alt="" /></a>
 
           </div>
           <div class="rating">
@@ -98,7 +98,7 @@
         <div class="movie last" style="margin-right: 10px;" >
           <div class="movie-image" >
             <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
-            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies/' + movies.movie_poster )}}" alt="" /></a>
           </div>
           <div class="rating">
             <p>Review</p>
