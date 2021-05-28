@@ -4,7 +4,7 @@ import pathlib
 from flask import Blueprint, redirect, render_template, request, url_for, flash, Flask, jsonify, Response, make_response
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
-from .model_admin import db
+from .model_admin import db, Movies
 from ecommerce.model_admin import Apparels
 
 app = Flask(__name__)
@@ -29,6 +29,42 @@ def view_products():
         return render_template('admin/products.html',apparel=apparel_data)
     else:
         return render_template('admin/auth/login.html')
+
+@admin.route('/admin/movies')
+def add_movies():
+    if current_user.is_authenticated:
+        return render_template('admin/add_movies.html')
+    else:
+        return render_template('admin/auth/login.html')
+
+@admin.route('/admin/movies', methods=['GET', 'POST'])
+def movies_post():
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+            movie_name = request.form.get('movie_name')
+            genre = request.form.get('genre')
+            f = request.files['file']
+            director_name = request.form.get('director_name')
+            actors = request.form.get('actors')
+            review = request.form.get('review')
+            files=f.filename
+            movie = Movies(movie_name, genre, files, director_name,actors,review)
+            db.session.add(movie)
+            db.session.commit()
+            flash("Successfully created!!")
+            if f.filename != '':
+                filename = secure_filename(f.filename)
+                f.save(os.path.join(app.config['UPLOAD_FOLDER']+ '/movies', filename))
+                #f.save(secure_filename(f.filename))
+                flash("Uploaded Successfully")
+            else:
+                flash(" Please select Images")
+                return redirect(url_for('admin.add_movies'))
+
+            return redirect(url_for('admin.dashboard'))
+    else:
+        return render_template('admin/auth/login.html')
+
 
 @admin.route('/upload', methods=['GET', 'POST'])
 def upload_file():

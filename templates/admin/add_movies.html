@@ -1,0 +1,77 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+      <!-- partial -->
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="d-xl-flex justify-content-between align-items-start">
+              <h2 class="text-dark font-weight-bold mb-2"> Movies </h2>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="tab-content tab-transparent-content">
+                  <div class="tab-pane fade show active" id="business-1" role="tabpanel" aria-labelledby="business-tab">
+                    <div class="row">
+                      <div class="col-12 grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="col-12 grid-margin stretch-card">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h4 class="card-title">Add Movies</h4>
+                                      <form class="forms-sample" action = "{{ url_for('admin.movies_post') }}" method = "POST"
+                         enctype = "multipart/form-data">
+                                        <div class="form-group">
+                                          <label for="moviesname">Movie Name</label>
+                                          <input type="text" name="movie_name" class="form-control" id="moviesname" placeholder="Movie Name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="genre">Genre </label>
+                                          <input type="text" name="genre" class="form-control" id="genre" placeholder="Genre">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="directorname">Director Name</label>
+                                          <input type="text" name="director_name" class="form-control" id="directorname" placeholder="Director Name">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="actor">Actor</label>
+                                          <input type="text" name="actors" class="form-control" id="actor" placeholder="Actors ">
+                                        </div>
+                                         <div class="form-group">
+                                          <label>File upload</label>
+                                          <div class="input-group col-lg-6">
+                                             <input type="file" name="file" class="btn btn-primary btn-lg btn-rounded btn-md pb-2 pt-3 pb-3 mb-2 mr-5 form-control-file"  style="background-color:#b66dff;border: 0px;" > </input>
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="review">Review</label>
+                                          <input type="text" name="review" class="form-control" id="review" placeholder="review">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary btn-rounded btn-fw">Add Movies</button>
+                                    
+
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+{% endblock %}
