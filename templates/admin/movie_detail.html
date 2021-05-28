@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MovieHunter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='movies/css/style.css')}}" type="text/css" media="all" />
+<script type="text/javascript" src="{{ url_for('static', filename='movies/js/jquery-1.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='movies/js/jquery-func.js')}}"></script>
+
+<!--[if IE 6]><link rel="stylesheet" href="{{ url_for('static', filename='movies/css/ie6.css')}}" type="text/css" media="all" /><![endif]-->
+</head>
+<body>
+<style>
+    .gallery-wrap .img-big-wrap img {
+    height: 80vh;
+    width: 60vh;
+    display: inline-block;
+    cursor: zoom-in;
+}
+
+
+.gallery-wrap .img-small-wrap .item-gallery {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    margin: 7px 2px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gallery-wrap .img-small-wrap {
+    text-align: center;
+}
+.gallery-wrap .img-small-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: zoom-in;
+}
+.description,.param{
+color:black;
+font-size:14px;
+}
+.checked {
+  color: orange;
+}
+</style>
+<!-- START PAGE SOURCE -->
+<div id="shell">
+  <div id="header">
+    <h1 id="logo"><a href="#">InfiMovies</a></h1>
+    <div class="social"> <span>FOLLOW US ON:</span>
+      <ul>
+        <li><a class="twitter" href="#">twitter</a></li>
+        <li><a class="facebook" href="#">facebook</a></li>
+        <li><a class="vimeo" href="#">vimeo</a></li>
+        <li><a class="rss" href="#">rss</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul>
+        <li><a class="active" href="#">HOME</a></li>
+        <li><a href="#">NEWS</a></li>
+        <li><a href="#">IN THEATERS</a></li>
+        <li><a href="#">COMING SOON</a></li>
+        <li><a href="#">CONTACT</a></li>
+        <li><a href="#">ADVERTISE</a></li>
+      </ul>
+    </div>
+    <div id="sub-navigation">
+      <ul>
+        <li><a href="#">SHOW ALL</a></li>
+        <li><a href="#">LATEST TRAILERS</a></li>
+        <li><a href="#">TOP RATED</a></li>
+        <li><a href="#">MOST COMMENTED</a></li>
+      </ul>
+      <div id="search">
+        <form action="#" method="get" accept-charset="utf-8">
+          <label for="search-field">SEARCH</label>
+          <input type="text" name="search field" value="Enter search here" id="search-field" class="blink search-field"  />
+          <input type="submit" value="GO!" class="search-button" />
+        </form>
+      </div>
+    </div>
+  </div>
+ <div class="container">
+	<br>
+<hr>
+
+
+<div class="card">
+	<div class="row">
+		<aside class="col-sm-5 border-right">
+<article class="gallery-wrap">
+<div class="img-big-wrap">
+  <div> <a href="#"><img src="{{ url_for('static', filename='uploads/movies/' + movie_data.movie_poster )}}"></a></div>
+</div> <!-- slider-product.// -->
+</article> <!-- gallery-wrap .end// -->
+		</aside>
+		<aside class="col-sm-7">
+<article class="card-body p-5">
+	<h1 class="title mb-3" style="color:black;">{{movie_data.movie_name }}</h1>
+
+<!--<p class="price-detail-wrap">-->
+<!--	<span class="price h3 text-warning">-->
+<!--		<span class="currency">US $</span><span class="num">1299</span>-->
+<!--	</span>-->
+<!--	<span>/per kg</span>-->
+<!--</p> &lt;!&ndash; price-detail-wrap .// &ndash;&gt;-->
+<div class="description">
+  <h3 style="color:black">Description</h3>
+  <p>Here goes description consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco </p>
+</div>
+<div class="param param-feature">
+
+</div>  <!-- item-property-hor .// -->
+<div class="param param-feature">
+  <dt>Genre</dt>
+  <dd>{{movie_data.genre}}</dd>
+</div>  <!-- item-property-hor .// -->
+    <br>
+<div class="param param-feature">
+  <dt>Director Name</dt>
+  <dd>{{movie_data.director_name}}</dd>
+</div>  <!-- item-property-hor .// -->
+
+<hr>
+	<div class="row">
+		<div class="col-sm-5">
+			<div class="param param-inline">
+  <dt>Actor Name</dt>
+  <dd>{{movie_data.actors}}</dd>
+			</div>  <!-- item-property .// -->
+		</div> <!-- col.// -->
+		<div class="col-sm-7">
+			<div class="param param-inline">
+                  <dt>Review</dt>
+<div>
+{{ movie_data.review }}
+</div>
+
+			</dl>  <!-- item-property .// -->
+		</div> <!-- col.// -->
+	</div> <!-- row.// -->
+	<hr>
+</article> <!-- card-body.// -->
+		</aside> <!-- col.// -->
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
+
+
+</div>
+<!--container.//-->
+  <div id="footer">
+    <p class="lf">Copyright &copy; 2021 - All Rights Reserved</p>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+<!-- END PAGE SOURCE -->
+
+</body>
+</html>

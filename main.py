@@ -51,3 +51,7 @@ def movie():
     movie_data = Movies.query.all()
     return render_template('movie.html',movies_data=movie_data)
 
+@main.route('/details/<int:movie_id>', methods=['GET', 'POST'])
+def movie_details(movie_id):
+    movie_by_id = Movies.query.get_or_404(movie_id)
+    return render_template('admin/movie_detail.html',movie_data=movie_by_id)

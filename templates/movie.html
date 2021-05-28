@@ -58,13 +58,13 @@
         </div>
         {% for movies in movies_data %}
         <div class="movie last" style="margin-right: 10px;">
-          <div class="movie-image"> <span class="play"><span class="name">X-MAN</span></span> <a href="#"><img src="{{ url_for('static', filename='movies/css/images/movie1.jpg')}}" alt="" /></a> </div>
+          <div class="movie-image">
+           <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+          </div>
           <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
+            <p>Review</p>
+         <span class="comments">{{ movies.review }}</span> </div>
         </div>
         {% endfor %}
       </div>
@@ -77,13 +77,14 @@
         </div>
        {% for movies in movies_data %}
         <div class="movie last" style="margin-right: 10px;">
-          <div class="movie-image"> <span class="play"><span class="name">TRANSFORMERS</span></span> <a href="#"><img src="{{ url_for('static', filename='movies/css/images/movie7.jpg')}}" alt="" /></a> </div>
+          <div class="movie-image">
+         <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+
+          </div>
           <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
+            <p>Review</p>
+             <span class="comments">{{ movies.review }}</span> </div>
         </div>
         {% endfor %}
         <div class="cl">&nbsp;</div>
@@ -94,14 +95,14 @@
           <p class="text-right"><a href="#">See all</a></p>
         </div>
         {% for movies in movies_data %}
-        <div class="movie last" style="margin-right: 10px;">
-          <div class="movie-image"> <span class="play"><span class="name">HOUSE</span></span> <a href="#"><img src="{{ url_for('static', filename='movies/css/images/movie13.jpg')}}" alt="" /></a> </div>
+        <div class="movie last" style="margin-right: 10px;" >
+          <div class="movie-image" >
+            <span class="play"><a href="{{ url_for('main.movie_details', movie_id=movies.movie_id) }}" type="button" ><span class="name">{{ movies.movie_name}}</span></a></span>
+            <a  ><img src="{{ url_for('static', filename='uploads/movies' + movies.movie_poster )}}" alt="" /></a>
+          </div>
           <div class="rating">
-            <p>RATING</p>
-            <div class="stars">
-              <div class="stars-in"> </div>
-            </div>
-            <span class="comments">12</span> </div>
+            <p>Review</p>
+            <span class="comments">{{ movies.review }}</span> </div>
         </div>
        {% endfor %}
         <div class="cl">&nbsp;</div>
