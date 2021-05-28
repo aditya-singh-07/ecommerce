@@ -60,8 +60,9 @@ class Movies(db.Model):
     director_name = db.Column(db.String(100), nullable=True)
     actors = db.Column(db.String(100), nullable=False)
     review = db.Column(db.String(100), nullable=False)
+    seat_available=db.Column(db.Integer, nullable=False)
 
-    def __init__(self, movie_name,movie_description, genre, movie_poster, director_name, actors, review):
+    def __init__(self, movie_name,movie_description, genre, movie_poster, director_name, actors, review,seat_available):
         self.movie_name = movie_name
         self.movie_description=movie_description
         self.genre = genre
@@ -69,6 +70,7 @@ class Movies(db.Model):
         self.director_name = director_name
         self.actors = actors
         self.review = review
+        self.seat_available=seat_available
 
 class Order(db.Model, UserMixin):
     order_id = db.Column(db.Integer, primary_key=True)

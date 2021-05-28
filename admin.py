@@ -48,8 +48,9 @@ def movies_post():
             director_name = request.form.get('director_name')
             actors = request.form.get('actors')
             review = request.form.get('review')
+            seat_available = request.form.get('seat_available')
             files=f.filename
-            movie = Movies(movie_name,movie_description, genre, files, director_name,actors,review)
+            movie = Movies(movie_name,movie_description, genre, files, director_name,actors,review,seat_available)
             db.session.add(movie)
             db.session.commit()
             flash("Successfully created!!")
