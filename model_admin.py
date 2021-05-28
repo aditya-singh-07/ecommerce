@@ -26,7 +26,7 @@ class Apparels(db.Model):
     apparel_name=db.Column(db.String(100), nullable=False)
     brand_name=db.Column(db.String(100), nullable=False)
     shop_name = db.Column(db.String(100), nullable=False)
-    image = db.Column(db.String(100), unique=True, nullable=False)
+    image = db.Column(db.String(100), nullable=True)
     material_type = db.Column(db.String(100), nullable=False)
     color = db.Column(db.String(100), nullable=False)
     occasion_type = db.Column(db.String(100), nullable=False)

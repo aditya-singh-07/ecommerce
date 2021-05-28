@@ -24,6 +24,13 @@ def admin_login():
 def admin_signup():
     return render_template('admin/auth/register.html')
 
+@auth.route('/admin/logout')
+@login_required
+def admin_logout():
+    logout_user()
+    return redirect(url_for('main.shopping'))
+
+
 @auth.route('/admin/login', methods=['POST'])
 def login_admin():
     email = request.form.get('email')

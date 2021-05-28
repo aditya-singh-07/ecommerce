@@ -20,7 +20,8 @@
                             <div class="row">
                               <div class="col-sm-12">
                              <h4 class="card-title">View  product</h4>
-                                     <table class="table table-hover">
+                                  <div class="table-responsive">
+                                     <table class="table  table-hover">
                       <thead>
                         <tr>
                           <th> id </th>
@@ -33,6 +34,8 @@
                             <th> occasion </th>
                             <th> Gender </th>
                             <th> Price </th>
+                            <th style="text-align:center"> Action </th>
+
 
                         </tr>
                       </thead>
@@ -49,10 +52,27 @@
                                <td>{{ apparel.occasion_type }}</td>
                                <td>{{ apparel.gender }}</td>
                                <td>{{ apparel.Price }}</td>
+                            <td>
+                                                       <ul class="list-inline m-0">
+
+                                <li class="list-inline-item">
+                                  <a class="btn btn-success btn-sm btn-rounded btn-sm" href="{{ url_for('admin.product_updates', product_id=apparel.apparel_id) }}" type="button" title="Edit"   style="border: 0px;" href="" type="button" title="Edit"><i class="fa fa-edit"></i>Edit</a>
+
+                                </li>
+                                <li class="list-inline-item">
+                                  <a class="btn btn-danger btn-sm btn-sm btn-rounded " style="border: 0px;"   href="{{ url_for('admin.product_delete', product_id=apparel.apparel_id) }}" type="button" type="button" title="Delete"><i class="fa fa-trash"></i>delete</a>
+
+                                </li>
+
+                            </ul>
+                            </td>
+
                         </tr>
                       {% endfor %}
                       </tbody>
-                    </table>{% for page_num in apparel.iter_pages(left_edge=1, right_edge=1,
+                    </table>
+                                  </div>
+                                      {% for page_num in apparel.iter_pages(left_edge=1, right_edge=1,
                           left_current=1, right_current=2) %} {% if page_num %} {% if apparel.page ==
                           page_num %}
                           <a
@@ -67,10 +87,78 @@
                             >{{ page_num }}</a
                           >
                           {% endif %} {% else %} ... {% endif %} {% endfor %}
+                                  <script>
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
 
+})
+</script>
+<!--  <div class="modal fade" id="exampleModaladd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header">-->
+<!--          <h5 class="modal-title" id="exampleModalLabeladd">Add Details</h5>-->
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <form class="pt-3" action="/post" method="POST">-->
+<!--                           <div class="form-group">-->
+<!--                                          <label for="apparelname">Apparel Name</label>-->
+<!--                                          <input type="text" name="apparel_name" class="form-control" id="apparelname" placeholder="Apparel Name">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="brandname">Brand Name</label>-->
+<!--                                          <input type="text" name="brand_name" class="form-control" id="brandname" placeholder="Brand Name">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="shopname">Shop Name</label>-->
+<!--                                          <input type="text" name="shop_name" class="form-control" id="shopname" placeholder="Shop Name">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="materialtype">Material type</label>-->
+<!--                                          <input type="text" name="material_type" class="form-control" id="materialtype" placeholder="Material type">-->
+<!--                                        </div>-->
 
-                              </div>
-                            </div>
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="color">Color</label>-->
+<!--                                          <input type="text" name="color" class="form-control" id="color" placeholder="Color">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="exampleInputPassword4">Occasion type</label>-->
+<!--                                          <input type="text" name="occasion_type" class="form-control" id="exampleInputPassword4" placeholder="Occasion type">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="gender">Gender</label>-->
+<!--                                          <select class="form-control" name="gender" id="gender">-->
+<!--                                            <option>Male</option>-->
+<!--                                            <option>Female</option>-->
+<!--                                          </select>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label>File upload</label>-->
+<!--                                          <div class="input-group col-lg-12">-->
+<!--                                             <input type="file" name="file" class="btn btn-primary btn-lg btn-rounded btn-md pb-2 pt-3 pb-3 mb-2 mr-5 form-control-file"  style="background-color:#b66dff;border: 0px;" > </input>-->
+<!--                                          </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group">-->
+<!--                                          <label for="Price">Price</label>-->
+<!--                                          <input type="text" name="Price" class="form-control" id="Price" placeholder="Price">-->
+<!--                                        </div>-->
+
+<!--            <div class="mt-3">-->
+
+<!--              <button class="btn btn-block btn-primary btn-lg pt-3" style="border: 0px;" type="submit">Add Details</button>-->
+<!--            </div>-->
+
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--                            </div>-->
                           </div>
                         </div>
                       </div>
